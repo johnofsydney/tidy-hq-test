@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /links or /links.json
   def index
@@ -33,7 +34,9 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: "Link was successfully created." }
-        format.json { render :show, status: :created, location: @link }
+
+        # not yet responding in json. boo
+        format.json { render json: { short: @link.shortened }, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @link.errors, status: :unprocessable_entity }
