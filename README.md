@@ -1,29 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
-
-API
+## API
 
 - send cURL request to create a new link like this:
 
@@ -39,3 +16,11 @@ Response:
 ```
 {"original":"http://example.com","shortened":"http://localhost:3000/short/a3c135c2","short_code":"a3c135c2"}%
 ```
+
+## Counter
+
+- is counting twice. ran out of time to debug
+
+## Copy to clipboard
+
+- https://gorails.com/episodes/copy-link-to-clipboard
