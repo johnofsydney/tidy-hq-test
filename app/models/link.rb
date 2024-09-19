@@ -16,4 +16,8 @@ class Link < ApplicationRecord
       errors.add(:original, "is not a valid URL")
     end
   end
+
+  def expired?
+    created_at < 30.days.ago
+  end
 end
