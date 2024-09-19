@@ -21,7 +21,14 @@ class LinksController < ApplicationController
 
   # POST /links or /links.json
   def create
-    @link = Link.new(link_params)
+    shortener = Shortener.new(link_params[:original])
+
+    @link = Link.new(
+      link_params.merge(
+        shortened: shortener.short_link,
+        short_code: shortener.short_code
+      )
+    )
 
     respond_to do |format|
       if @link.save
