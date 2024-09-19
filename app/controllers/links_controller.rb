@@ -34,9 +34,7 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: "Link was successfully created." }
-
-        # not yet responding in json. boo
-        format.json { render json: { short: @link.shortened }, status: :created }
+        format.json { render json: { original: @link.original, shortened: @link.shortened, short_code: @link.short_code }, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @link.errors, status: :unprocessable_entity }
